@@ -32,6 +32,17 @@ describe('Pawn', () => {
             moves.should.deep.include.members([Square.at(2, 7), Square.at(3, 7)]);
         });
 
+        it('can not move any furtehr if at the top of the board', () => {
+            const pawn = new Pawn(Player.WHITE);
+            board.setPiece(Square.at(7, 3), pawn);
+            
+
+            const moves = pawn.getAvailableMoves(board);
+            
+            moves.should.have.length(0);
+            
+        });
+
     });
 
     describe('black pawns', () => {
